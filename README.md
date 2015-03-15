@@ -18,6 +18,7 @@ Fedex Commercial Invoice Generation using Pythong and using reportlab  (Under De
 
 * Will take yaml or xml file as input:
 
+<pre><code>
     company_name: 'TODO'
     company_address: 'TODO'
     waybill_no: 'TODO'
@@ -46,6 +47,7 @@ Fedex Commercial Invoice Generation using Pythong and using reportlab  (Under De
     
     signature: 'TODO'
     date: 'TODO'
+</code></pre>
 
 
 
