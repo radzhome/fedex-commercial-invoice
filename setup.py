@@ -8,9 +8,9 @@ setup(
     packages=find_packages(),
     install_requires=['reportlab'],
     include_package_data=True,
-    url='https://github.com/radlws/',
+    url='https://github.com/radlws/fedex-commercial-invoice/',
     license='',
-    description='Fedex commercial invoice generator.',
+    description='Fedex Commercial Invoice generator.',
     long_description=open('README.md').read(),
     zip_safe=False,
 )
