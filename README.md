@@ -16,7 +16,11 @@ Fedex Commercial Invoice Generation using Pythong and using reportlab  (Under De
 
 (TODO, Planning)
 
-* Will take yaml or xml file as input:
+* Create an object that gets json params passed to it for creating the invoice. A file can take params and instantiate the object.
+* 
+<pre><code>
+{'company_name': 'TODO', 'company_address': 'TODO', etc...}
+</code></pre>
 
 <pre><code>
 company_name: 'TODO'
