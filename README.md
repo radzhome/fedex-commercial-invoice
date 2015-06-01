@@ -21,6 +21,7 @@ Fedex Commercial Invoice Generation using Pythong and using reportlab  (Under De
 <pre><code>
 {'company_name': 'TODO', 'company_address': 'TODO', etc...}
 </code></pre>
+This will initialize the commercial invoice object with the data.
 
 <pre><code>
 company_name: 'TODO'
