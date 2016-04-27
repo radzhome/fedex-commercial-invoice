@@ -1,11 +1,11 @@
 # Fedex Commercial Invoice #
 
-Fedex Commercial Invoice Generation using Pythong and using reportlab  (Under Development)
+Fedex Commercial Invoice Generation using Python (using reportlab)
 
 ### What is this repository for? ###
 
 * A way to generate a commercial fedex invoice
-* https://github.com/radlws/fedex-commercial-invoice
+* https://github.com/radzhome/fedex-commercial-invoice
 
 ### How do I get set up? ###
 
@@ -13,53 +13,49 @@ Fedex Commercial Invoice Generation using Pythong and using reportlab  (Under De
 
 ### Usage ###
 
-(TODO, Planning)
-
-* Create an object that gets json/dict params passed to it for creating the invoice. A file can take params and instantiate the object.
-* This would be in a file, or you can initialize the class object with a dict of this structure:
+Generate Commercial Invoice
 <pre><code>
-{'company_name': 'TODO', 'company_address': 'TODO', 'waybill_no': 'TODO', 'export_date': 'TODO', 'export_refs': 'TODO',
-'shipper': 'TODO', 'export_country': 'TODO', 'dest_country': 'TODO', 'cosignee_name': 'TODO', 
-'cosignee_address1': 'TODO', 'cosignee_address2': 'TODO', 'importer_name': 'TODO', 'importer_address1': 'TODO',
-'importer_address2': 'TODO', 'fob_caf_cif': 'TODO', 'signature': 'TODO', 'date': 'TODO', 
-'products': 
-[{'marks_nos': '', 'no_pkgs': 1, 'pkg_type': 1, 'description': 'item described', 'qty': 1, 'measure_unit': 'lbs', 'weight': '25', 'total_val': '23.24'}, 
-{'marks_nos': '', 'no_pkgs': 1, 'pkg_type': 1, 'description': 'item described', 'qty': 1, 'measure_unit': 'lbs', 'weight': '25', 'total_val': '23.24'}]}
+# generate_invoice test
+from fedex_invoice.invoice import generate_commercial_invoice
+
+
+# Includes company info.
+export_data = {'company': 'Radtek Inc.', 'address': '123 Main St.',
+               'city': 'Toronto', 'state_code': 'ON', 'postal_code': 'L8J 1V4', 'country_code': 'CA',
+               'waybill_no': '9999 9999 9999', 'export_date': '12/20/2015', 'export_refs': '999432423, 14314321423',
+               'export_country': 'USA', 'manufacture_country': 'CHINA',
+               'destination_country': 'CANADA'}
+
+importer_data = {'first_name': 'Real First Name',
+                 'last_name': 'Real Last Name',
+                 'postal_code': 'M5A 3C6', 'country_code': 'CA', 'state_code': 'ON',
+                 'city': 'North York', 'address': '123 Import St.'}
+
+exporter_data = {'first_name': 'Real First Name',
+                 'last_name': 'Real Last Name',
+                 'postal_code': 'M5A 3C6', 'country_code': 'CA', 'state_code': 'ON',
+                 'city': 'North York', 'address': '123 Export St.'}
+
+cosignee_data = {'first_name': 'Real First Name',
+                 'last_name': 'Real Last Name',
+                 'postal_code': 'M5A 3C6', 'country_code': 'CA', 'state_code': 'ON',
+                 'city': 'North York', 'address': '123 Cosignee St.'}
+
+product1 = {'marks_nos': '1234', 'no_packages': 1, 'package_type': 'BOX',
+            'description': 'a description of the goods in a full and up to date way', 'quantity': 1,
+            'measure_unit': 'lbs', 'weight': 25, 'unit_value': 23.24, 'total_value': 23.24}
+
+product2 = {'marks_nos': '12', 'no_packages': 1, 'package_type': 'OWN_PACKAGING',
+            'description': 'a description of the goods, another product to describe', 'quantity': 2,
+            'measure_unit': 'lbs', 'weight': 5, 'unit_value': 43.44, 'total_value': 43.44}
+
+flags = {'fob': True, 'caf': True, 'cif': False}
+
+products = [product1, product2, product1, product2, product1, product2]
+
+generate_commercial_invoice(export_data, exporter_data, cosignee_data, products, flags, importer_data)
 </code></pre>
-
-This will initialize the commercial invoice object with the data.
-
-OLD way using yaml:
-<pre><code>
-company_name: 'TODO'
-company_address: 'TODO'
-waybill_no: 'TODO'
-export_date: 'TODO'
-export_refs: 'TODO'
-shipper: 'TODO'
-export_country: 'TODO'
-manf_country: 'TODO'
-dest_country: 'TODO'
-
-consignee:
-  - name
-  - address1
-  - address2
-
-importer: #(OPTIONAL)
-  - name
-  - address1
-  - address2
-
-fob_caf_cif: 'TODO'
-
-products:
-  - { marks_nos: '', no_pkgs: 1, pkg_type: 1, description: 'item described', qty: 1, measure_unit: 'lbs', weight: '25', total_val: '23.24'  }
-  - { marks_nos: '', no_pkgs: 1, pkg_type: 1, description: 'item described', qty: 1, measure_unit: 'lbs', weight: '25', total_val: '23.24'  }
-
-signature: 'TODO'
-date: 'TODO'
-</code></pre>
+See Sample for output example.
 
 
 
