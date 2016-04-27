@@ -58,4 +58,5 @@ generate_commercial_invoice(export_data, exporter_data, cosignee_data, products,
 See Sample for output example.
 
 
-
+This repository can be used as a starting point for generating your own invoice. If you have a useful script, don't
+hesitate to add it to the project.
