@@ -1,6 +1,6 @@
-# Fedex Commercial Invoice #
+# Fedex Invoice #
 
-Fedex Commercial Invoice Generation using Python (using reportlab)
+* Fedex Commercial Invoice Generation using Python (using reportlab)
 
 ### What is this repository for? ###
 
@@ -9,7 +9,9 @@ Fedex Commercial Invoice Generation using Python (using reportlab)
 
 ### How do I get set up? ###
 
-* download repo, install requirements.txt using pip
+* Using pip: `[sudo] pip install fedex-invoice`
+* OR download repo, install `requirements.txt` using pip
+* OR use `[sudo] python setup.py install`
 
 ### Usage ###
 
